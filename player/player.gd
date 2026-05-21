@@ -14,8 +14,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("space") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	move(delta)
+	
+	
+func move(delta) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -29,7 +31,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 ## Rotates the mesh to the move direction
 func rotate_mesh(direction: Vector3, delta: float, speed: float = 12) -> void:
 	var las_move_direction
@@ -41,5 +42,5 @@ func rotate_mesh(direction: Vector3, delta: float, speed: float = 12) -> void:
 
 	var target_angle := Vector3.BACK.signed_angle_to(las_move_direction, Vector3.UP)
 
-	mesh.global_rotation.y = lerp_angle(mesh.global_rotation.y ,target_angle, speed * delta)
+	mesh.global_rotation.y = lerp_angle(mesh.global_rotation.y, target_angle, speed * delta)
 	pass
