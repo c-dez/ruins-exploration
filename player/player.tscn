@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://vs62x31vtmdn" path="res://components/state_machine/state_machine.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://baldppxn3465q" path="res://components/state_machine/state.gd" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://7ega3elwg5sn" path="res://player/camera.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://bm8n6p2irlrkg" path="res://player/mesh.gd" id="4_qjkh3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqu6x"]
 
@@ -32,6 +33,7 @@ metadata/_custom_type_script = "uid://baldppxn3465q"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=930398238]
 mesh = SubResource("CapsuleMesh_kqu6x")
+script = ExtResource("4_qjkh3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1974090246]
 transform = Transform3D(0.48987633, 0, 0, 0, 0.36386502, 0, 0, 0, 0.3784998, 0, 0.3208835, -0.622972)
