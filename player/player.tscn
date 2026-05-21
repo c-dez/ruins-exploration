@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cra6txr5plmuy"]
+
+[ext_resource type="Script" uid="uid://3lvlmajdg3ap" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Script" uid="uid://vs62x31vtmdn" path="res://components/state_machine/state_machine.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://baldppxn3465q" path="res://components/state_machine/state.gd" id="2_g1dw6"]
+[ext_resource type="Script" uid="uid://7ega3elwg5sn" path="res://player/camera.gd" id="2_yw30f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqu6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oul6g"]
+albedo_color = Color(1, 0.08627451, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rkbax"]
+material = SubResource("StandardMaterial3D_oul6g")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g1dw6"]
+
+[node name="Player" type="CharacterBody3D" unique_id=920355599]
+script = ExtResource("1_g1dw6")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1735207902]
+script = ExtResource("1_rkbax")
+metadata/_custom_type_script = "uid://vs62x31vtmdn"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1734240799]
+script = ExtResource("2_g1dw6")
+metadata/_custom_type_script = "uid://baldppxn3465q"
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=1392145031]
+script = ExtResource("2_g1dw6")
+metadata/_custom_type_script = "uid://baldppxn3465q"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=930398238]
+mesh = SubResource("CapsuleMesh_kqu6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1974090246]
+transform = Transform3D(0.48987633, 0, 0, 0, 0.36386502, 0, 0, 0, 0.3784998, 0, 0.3208835, -0.622972)
+mesh = SubResource("BoxMesh_rkbax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2059664915]
+shape = SubResource("CapsuleShape3D_g1dw6")
+
+[node name="Camera" type="Node3D" parent="." unique_id=231986949]
+script = ExtResource("2_yw30f")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera" unique_id=1825830073]
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="Camera/SpringArm3D" unique_id=153490197]
