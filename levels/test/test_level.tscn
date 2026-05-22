@@ -35,8 +35,12 @@ size = Vector3(100, 0.5, 100)
 material = SubResource("StandardMaterial3D_nf3qt")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=686297043]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -10)
-size = Vector3(6, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.7499995, -10)
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1339959289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9181848, 1.2499995, -10)
+size = Vector3(2, 2, 2)
 
 [node name="Player" parent="." unique_id=920355599 instance=ExtResource("1_7qwwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5020553, 0)
